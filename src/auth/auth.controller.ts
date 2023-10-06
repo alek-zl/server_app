@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, Post, UsePipes, ValidationPipe } from "@nestjs/common";
+import { Body, Controller, HttpCode, Post, UsePipes, ValidationPipe, Headers, Param } from "@nestjs/common";
 import { AuthDto } from "./auth.dto";
 import { AuthService } from "./auth.service";
 
@@ -11,13 +11,18 @@ export class AuthController {
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
   @Post('login')
-  async login(@Body() dto:AuthDto){
-    return this.AuthService.login(dto)
+  async login(@Body() dto: AuthDto, @Headers() headers: any) {
+    console.log(dto); // DTO данные от пользователя
+    console.log(headers); // Заголовки запроса
+    return this.AuthService.login(dto);
   }
+  
   @UsePipes(new ValidationPipe())
   @HttpCode(200)
   @Post('register')
-  async register(@Body() dto:AuthDto){
-    return this.AuthService.register(dto)
+  async register(@Body() dto: AuthDto, @Param('id') userId: string) {
+    console.log(dto); // DTO данные от пользователя
+    console.log(userId); // ID пользователя из параметра маршрута
+    return this.AuthService.register(dto);
   }
 }

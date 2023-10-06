@@ -10,9 +10,9 @@ export class AppController {
   @Post('recognize')
   @UseInterceptors(FileInterceptor('image'))
   async recognizeImage(
-    @UploadedFile() file: Express.Multer.File,
-  ): Promise<{ text: string }> {
+    @UploadedFile() file: Express.Multer.File): Promise<{ text: string }> {
     const text = await this.tesseractService.recognizeImage(file.buffer);
+    console.log({text})
     return { text };
   }
 }

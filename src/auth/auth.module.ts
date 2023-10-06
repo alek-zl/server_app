@@ -3,7 +3,7 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { JwtModule } from "@nestjs/jwt";
 import { TypegooseModule } from "nestjs-typegoose";
 import { getJwtconfig } from "../config/jwt.config";
-import { UserModel } from "../user/user.module";
+import { UserModel } from "../module/user.model";
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 

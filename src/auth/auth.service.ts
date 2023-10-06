@@ -2,7 +2,7 @@ import { BadRequestException, Injectable } from "@nestjs/common"
 import { JwtService } from "@nestjs/jwt"
 import { ModelType } from "@typegoose/typegoose/lib/types"
 import { InjectModel } from "nestjs-typegoose"
-import { UserModel } from "src/user/user.module"
+import { UserModel } from "src/module/user.model"
 import { AuthDto } from "./auth.dto"
 
 @Injectable()

@@ -4,8 +4,10 @@ import { TypegooseModule } from "nestjs-typegoose";
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+import {ProductModule} from "./product/product.module";
 import { getMongoconfig } from "./config/mongo.config";
 import { TesseractModule } from "./tesseract/tesseract.module";
+
 
 @Module({
   imports: [
@@ -16,7 +18,8 @@ import { TesseractModule } from "./tesseract/tesseract.module";
       useFactory: getMongoconfig,
     }),
     AuthModule,
-    TesseractModule
+    TesseractModule,
+    ProductModule
   ],
   controllers: [AppController],
   providers: [AppService],
